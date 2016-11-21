@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.latitude.dao.PostCommentDAO;
 import com.niit.latitude.dao.PostDAO;
 import com.niit.latitude.model.Post;
+import com.niit.latitude.model.PostComment;
 
 
 
@@ -23,6 +25,12 @@ public class HomeController {
 	
 	@Autowired
 	public PostDAO postDAO;
+	
+	@Autowired
+	public PostComment postComment;
+	
+	@Autowired
+	public PostCommentDAO postCommentDAO;
 	
 	@RequestMapping("/")
 	public ModelAndView load(HttpSession session) {
@@ -45,10 +53,14 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping("/postcomment")
+	@RequestMapping("/postComment")
 	public ModelAndView postcomment() {
 		ModelAndView mv = new ModelAndView("/home");	
+		
+		mv.addObject("postComment", postComment);
 		mv.addObject("ispostcomment", "true");
+		mv.addObject("postCommentList", postCommentDAO.list());
+		
 		return mv;
 	}
 	

@@ -33,6 +33,7 @@
 	<div id="postHere">
 		<c:if test="${ispost==true}">
 			<%@ include file="post.jsp"%>
+			
 		</c:if>
 	</div>
 

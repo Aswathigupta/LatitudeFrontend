@@ -29,8 +29,8 @@
 					</c:when>
 
 					<c:otherwise>
-						<td><form:input path="id" pattern=".{6,7}" required="true"
-								title="id should contains 6 to 7 characters" /></td>
+						<td><form:input path="id" pattern=".{1,8}" required="true"
+								title="id should contains 3 to 4 characters" /></td>
 					</c:otherwise>
 				</c:choose>
 			<tr>
@@ -67,13 +67,15 @@
 				<p>Post ID: ${post.id}</p>
 				<p>Title : ${post.name} </p>
 				<p>Description :  ${post.description} </p>
-				<p><a class="btn btn-primary" href="<c:url value='post/delete/${post.id}' />">Delete</a>
-				<a class="btn btn-primary" href="<c:url value='post/comment/${post.id}' />">Comment</a></p>
-				
-
+				<p><a  href="<c:url value='post/delete/${post.id}' />">Delete</a>
+				<!--  <a class="btn btn-primary" href="<c:url value='postcomment/${post.id}' />">Comment</a></p>-->
+				<a href="postComment">comment</a>
+		
 			</c:forEach>
 		
 	</c:if>
+	
+	
 	
 </body>
 </html>
